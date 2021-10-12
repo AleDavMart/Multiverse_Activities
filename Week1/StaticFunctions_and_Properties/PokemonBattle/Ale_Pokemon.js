@@ -43,9 +43,9 @@ class Pokemon {
     }
 
     class Fearow extends Pokemon{
-        constructor(name,number, type, hp){
+        constructor(name,number, type, hp, attack){
             super(name,number, type, hp)
-        
+          this.attack = drillPeck();
         }
         drillPeck(pokemon){//function for specific pokemon attack 
             let attackVal = Math.floor(Math.Random()*70) // value of attack will be 0-70 HP 
@@ -73,15 +73,15 @@ class Goldluck extends Pokemon{
             console.log(pokemon.hp)
         }, 500)
     }
-    Surf(pokemon){
-        let attackVal = Math.floor(Math.random()*70)//attach value ranges from 0 -70
+    // Surf(pokemon){
+    //     let attackVal = Math.floor(Math.random()*70)//attach value ranges from 0 -70
 
-        setTimeout(() =>{
-            `${this.name} used Surf!`
-            pokemon.hp = pokemon.hp - attackVal
-            console.log(pokemon.hp)
-        }, 500)
-    }
+    //     setTimeout(() =>{
+    //         `${this.name} used Surf!`
+    //         pokemon.hp = pokemon.hp - attackVal
+    //         console.log(pokemon.hp)
+    //     }, 500)
+   // }
 }
 
 const goldluck = new Goldluck ('Goldluck', 55, 'water', 120)

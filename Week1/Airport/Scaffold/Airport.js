@@ -9,4 +9,13 @@ class Airport {
 	}
 }
 
+
+//testing 
+const sanfran = new Airport('SFO')
+sanfran.addPlane('Totoro')
+
+console.log(sanfran)
+console.log(sanfran.planes)
+
+
 module.exports = Airport

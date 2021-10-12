@@ -6,7 +6,7 @@ function getRandomPokemon(num){
      //console.log(num)// random number generated
 
      fetch(`https://pokeapi.co/api/v2/pokemon/${num}`).then((res) =>{
-        return res.json()
+        return res.json() // we are parsing out this JSON object with the .json() to a JS object that we can use 
     }).then((data)=>{
         console.log(data.name)
         return data.name
