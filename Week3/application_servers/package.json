@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "jest": "^27.2.5",
+    "sequelize": "^6.7.0",
+    "sqlite3": "^5.0.2"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test" : "jest"
+  },
+  "name": "application_servers",
+  "description": "//npm init",
+  "version": "1.0.0",
+  "main": "db.js",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
+}
