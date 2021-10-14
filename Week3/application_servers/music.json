@@ -2,6 +2,8 @@
     "data": [
         { "name":"Say So by Doja Cat" , "genre":"Pop Music"  },
         {"name":"Dead to Me by Kali Uchis", "genre":"R&B/Soul"},
-        {"name":"La Puerta Negra by Los Tigres del Norte", "genre":"Norteno"}
+        {"name":"La Puerta Negra by Los Tigres del Norte", "genre":"Norteno"},
+        {"name":"Good Days by SZA", "genre":"Pop"},
+        {"name":"Yonaguni by Bad Bunny", "genre":"reggaeton"}
     ]
 }
