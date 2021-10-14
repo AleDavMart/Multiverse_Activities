@@ -24,12 +24,54 @@ app.get('/allUsers',async (req, res) =>{ //the route for the browser is defined 
    // res.json(await Music.findAll()) //it works ---idk why we cant do this 
 })
 
-app.get('/allMusic',async (req, res) =>{ //the route for the browser is defined in the first param
+// app.get('/allMusic',async (req, res) =>{ //the route for the browser is defined in the first param
    
-    let allSongs = await Music.findAll()//equivalent to sqlite3 : SELECT* FROM MUSIC
-    res.json({allSongs})
-   // res.json(await Music.findAll()) //it works ---idk why we cant do this 
+//     let allSongs = await Music.findAll()//equivalent to sqlite3 : SELECT* FROM MUSIC
+//     res.json({allSongs})
+//    // res.json(await Music.findAll()) //it works ---idk why we cant do this 
+// })
+
+app.post('/music',async (req, res) =>{ //the route for the browser is defined in the first param
+    await Music.create({"name":'newSong321', "genre": 'techno'})//equivalent to sqlite3 : SELECT* FROM MUSIC
+     // res.json(await Music.findAll()) //it works ---idk why we cant do this 
 })
+
+app.get('/music', async(req, res) => {
+    let allSongs = await Music.findAll()
+    res.json({allSongs})
+})
+
+app.get('/music/:id', async(req, res) => {
+    let id = req.params.id
+    let onesong = await Music.findByPk(id)
+    res.json({onesong})
+})
+
+// app.put('/music/:id', async(req, res) => { //going to grab anything after the colon
+//     let id = req.params(id) //capturing the id by storing it in a variable
+//     //find the row first before updating 
+//     let songToUpdate = await Music.findByPk(id)
+//     await Music.update(songToUpdate, {}) // first param is the song and second one is the update
+
+// })
+
+
+app.delete('/music/:id', async(req, res) => {
+    let id = req.params.id
+    //find the song
+    let songToBeDeleted = await Music.findByPk(id)
+    await Music.destroy(songToBeDeleted)
+})
+
+
+app.listen(PORT, () => { //method will listen to see if there is any interaction with our server 
+    
+    console.log(`Your server is now listening to port ${PORT}`)
+
+})
+
+
+
 
 
 
@@ -72,9 +114,3 @@ app.get('/allMusic',async (req, res) =>{ //the route for the browser is defined 
 
 // })
 
-
-app.listen(PORT, () => { //method will listen to see if there is any interaction with our server 
-    
-    console.log(`Your server is now listening to port ${PORT}`)
-
-})
