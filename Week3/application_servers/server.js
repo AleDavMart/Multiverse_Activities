@@ -11,6 +11,7 @@ const seed = require('./seed')
 const {db} = require('./db')// import our db
 const { Music} = require ('./models/index')// import our associated model
 const {User} = require('./models/index')
+const { id } = require('prelude-ls')
 // want to invoke seed function first because 
 seed()
 
@@ -47,6 +48,13 @@ app.get('/music/:id', async(req, res) => {
     res.json({onesong})
 })
 
+app.get('/music/:id', async(req, res) => {
+    let id = req.params.id
+    let onesong = await Music.findByPk(id)
+    onesong.UserId = ''
+    res.json({onesong})
+})
+
 // app.put('/music/:id', async(req, res) => { //going to grab anything after the colon
 //     let id = req.params(id) //capturing the id by storing it in a variable
 //     //find the row first before updating 
@@ -57,10 +65,11 @@ app.get('/music/:id', async(req, res) => {
 
 
 app.delete('/music/:id', async(req, res) => {
-    let id = req.params.id
-    //find the song
-    let songToBeDeleted = await Music.findByPk(id)
-    await Music.destroy(songToBeDeleted)
+  //where helps us filter which column we are trying to identify
+    await Music.destroy({
+    where: {id: req.params.id }
+})
+    resp.send('song deleted')
 })
 
 
