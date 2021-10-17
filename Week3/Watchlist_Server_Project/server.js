@@ -15,6 +15,7 @@ const { post } = require('request')
 
 seed()
 
+app.use(express.json());
 
 //path to show all users
 app.get('/users', async(req, res) => {
@@ -29,7 +30,13 @@ app.get('/shows', async(req, res) => {
 })
 
 //allows us to attach a userid to the show
+app.put('/user/watched/:id', async (req, res) => {
+    let id = req.params.id
 
+    let userToUpdate = await User.findByPk(id)
+    await userToUpdate.update({ id:id,  "watched": ''})
+    res.send(`watched list has been updated`)
+})
 
 app.listen(PORT, () => {
     console.log(`Your server is now listening to port ${PORT}`)
