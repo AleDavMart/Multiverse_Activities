@@ -6,4 +6,5 @@ const { Show} = require ('./Show')
 Show.belongsTo(User)
 User.hasMany(Show)
 
+
 module.exports = { User, Show}

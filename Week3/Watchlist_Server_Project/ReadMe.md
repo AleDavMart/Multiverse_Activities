@@ -1,19 +1,25 @@
-Will add more information after the project is complete.....
+TV Shows App: 
 
+The purpose of this project was to build out a local server which would allow us to send requests. This app focuses on creating a database for shows which include properties like genre, seasons, and a rotten tomamtoes rating. Along with this we created Users which could add shows to their personal lists and rate them. Throughout this process we set the localhost:3000 channel to test the server and used postman to check our GET, PUT, and DELETE requests. 
 
-Tasks: 
--Create User.json file with some users data
--Create Shows.json file with some data 
-- UML diagram
+Technologies needed: 
+1. NPM 
+2. SQlite3
+3. Sequelize
+4. Express
+5. Jest - for testing //tests coming in the future...
+6. Nodemon - to keep the server updated and running
 
-Show List:
-1.The Onehundred, Scifi, 7 seasons, 93 %
-2.Who Killed Sarah, Thriller, 2 Seasons, 86% 
-3.The Circle, Reality TV, 3 seasons, 81%
-4.Little America, Comedy, 2 Seasons, 95% 
-5.Supernatural, Mystery ,15 seasons, 93%
-6.Clickbait, Drama, 1 season, 58% 
-7.Twin Peaks, crime, seasons 2, rating: 82% 
-8.Squidgame, Drama, 1 season, rating 91%
-9.Midnight Mass, Horror, 1 season, 91%
-10.On My Block, Drama, 4 seasons, 92%
+Please install the dependencies by opening up Terminal on the project folder and running the following commands: 
+
+    npm init
+    npm install jest sequelize sqlite3 express nodemon
+
+To Test the functions of the server, please use postman linked below. 
+    Postman.com
+
+    Testing for udating shows: 
+    
+
+Thank you for your time and feel free to have fun exploring this project.
+
