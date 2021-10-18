@@ -14,9 +14,12 @@ const {id} = require('prelude-ls') //- wtf is this?
 const { post } = require('request')
 const { templateSettings } = require('lodash')
 
-seed()
+
 
 app.use(express.json());
+
+seed()
+
 
 //path to show all users
 app.get('/users', async(req, res) => {
@@ -46,11 +49,24 @@ app.get('/shows', async(req, res) => {
 //       });
 // });
 
+// route that will update a show by PK
 app.put('/show/:id', async( req, res) => {
     let id = req.params.id
     let updateShow = await Show.findByPk(id)
     await updateShow.update()
     res.send(' show has been updated')
+})
+
+//route that will create a show 
+app.post('/show/create', async(req, res) =>{
+
+    let {name, genre, seasons, rating, UserId} = req.body
+
+    await Show.create({
+        name, genre, seasons, rating, UserId
+    })
+
+    res.send(`Show has been added ${name}`)
 })
 
 app.listen(PORT, () => {

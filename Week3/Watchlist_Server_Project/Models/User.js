@@ -5,9 +5,7 @@ class User extends Model{
 }
 
 User.init({
-    name: DataTypes.STRING,
-    watched: DataTypes.STRING // to create a list 
-   
+    name: DataTypes.STRING
 },{
     sequelize: db
 })
