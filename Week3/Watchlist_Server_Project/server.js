@@ -29,14 +29,21 @@ app.get('/shows', async(req, res) => {
     res.json({allShows})
 })
 
-//allows us to attach a userid to the show
-app.put('/user/watched/:id', async (req, res) => {
-    let id = req.params.id
-
-    let userToUpdate = await User.findByPk(id)
-    await userToUpdate.update({ id:id,  "watched": ''})
-    res.send(`watched list has been updated`)
-})
+//allows us to get a single user id 
+app.get("/user/:id", (req, res, next) => {
+    let singleUser = "select * from user where id = ?"
+    var id = [req.singleUser.id]
+    db.get(singleUser, id, (err, row) => {
+        if (err) {
+          res.status(400).json({"error":err.message});
+          return;
+        }
+        res.json({
+            "message":"success",
+            "user_data":row
+        })
+      });
+});
 
 app.listen(PORT, () => {
     console.log(`Your server is now listening to port ${PORT}`)
